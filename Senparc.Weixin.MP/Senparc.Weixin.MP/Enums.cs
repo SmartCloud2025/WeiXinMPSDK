@@ -76,7 +76,9 @@ namespace Senparc.Weixin.MP
         Music,
         Image,
         Voice,
-        Video
+        Video,
+        Transfer_Customer_Service
+		//transfer_customer_service
     }
 
     /// <summary>
