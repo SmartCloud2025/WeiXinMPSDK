@@ -10,7 +10,7 @@ namespace Senparc.Weixin.MP.Test.CommonAPIs
     //[TestClass]
     public partial class CommonApiTest
     {
-        protected string _appId = "wxaa572be2f86423fc"; //换成你的信息
+        protected string _appId = "wxbe855a981c34aaf"; //换成你的信息
         protected string _appSecret = ""; //换成你的信息
 
 
