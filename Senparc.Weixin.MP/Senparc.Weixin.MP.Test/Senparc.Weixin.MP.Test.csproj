@@ -71,7 +71,11 @@
     <Compile Include="AdvancedAPIs\Groups\CustomTest.cs" />
     <Compile Include="AdvancedAPIs\Media\MediaTest.cs" />
     <Compile Include="AdvancedAPIs\OAuth\OAuthTest.cs" />
+    <Compile Include="AdvancedAPIs\TenPay\TenPayRightsTest.cs" />
     <Compile Include="AdvancedAPIs\User\CustomTest.cs" />
+    <Compile Include="AdvancedAPIs\TenPay\TenPayTest.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\ProductTest.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\ShelvesTest.cs" />
     <Compile Include="Agents\MessageAgentTest.cs" />
     <Compile Include="CheckSignatureTest.cs" />
     <Compile Include="CommonAPIs\AccessTokenContainerTest.cs" />

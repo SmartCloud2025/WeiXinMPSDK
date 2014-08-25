@@ -82,7 +82,6 @@ namespace Senparc.Weixin.MP.Sample.CommonService.CustomMessageHandler
             //注意：下面泛型ResponseMessageText即返回给客户端的类型，可以根据自己的需要填写ResponseMessageNews等不同类型。
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
 
-
             if (requestMessage.Content == "约束")
             {
                 responseMessage.Content = "<a href=\"http://weixin.senparc.com/FilterTest/\">点击这里</a>进行客户端约束测试（地址：http://weixin.senparc.com/FilterTest/）。";
@@ -210,6 +209,7 @@ namespace Senparc.Weixin.MP.Sample.CommonService.CustomMessageHandler
             responseMessage.Music.MusicUrl = "http://weixin.senparc.com/Content/music1.mp3";
             responseMessage.Music.Title = "这里是一条音乐消息";
             responseMessage.Music.Description = "来自Jeffrey Su的美妙歌声~~";
+            responseMessage.Music.ThumbMediaId = "mediaid";
             return responseMessage;
         }
 

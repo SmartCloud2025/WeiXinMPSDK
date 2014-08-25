@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvancedAPIs\CustomService\CustomInfoJson.cs" />
+    <Compile Include="AdvancedAPIs\CustomService\CustomOnlineJson.cs" />
     <Compile Include="AdvancedAPIs\CustomService\CustomService.cs" />
     <Compile Include="AdvancedAPIs\CustomService\RecordJson.cs" />
     <Compile Include="AdvancedAPIs\CustomService\GetRecordResult.cs" />
@@ -75,9 +77,36 @@
     <Compile Include="AdvancedAPIs\User\OpenIdResultJson.cs" />
     <Compile Include="AdvancedAPIs\User\User.cs" />
     <Compile Include="AdvancedAPIs\User\UserInfoJson.cs" />
+    <Compile Include="Exceptions\MessageHandlerException.cs" />
+    <Compile Include="TenPayLib\CheckRequestHandler.cs" />
+    <Compile Include="TenPayLib\RefundQueryRequestHandler.cs" />
+    <Compile Include="TenPayLib\ClientRequestHandler.cs" />
+    <Compile Include="TenPayLib\ClientResponseHandler.cs" />
+    <Compile Include="TenPayLib\TenPay\TenPay.cs" />
+    <Compile Include="TenPayLib\TenPay\TenPayResult.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Group\Group.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Group\GroupPostData.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Group\GroupResult.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Picture\Picture.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Picture\PictureResult.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\PostageTemplate\PostageTemplate.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\PostageTemplate\PostageTemplatePostData.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\PostageTemplate\PostageTemplateResult.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Product\Product.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Product\ProductPostData.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Product\ProductResult.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Shelves\Shelves.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Shelves\ShelvesPostData.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Shelves\ShelvesResult.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Stock\Stock.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Stock\StockPostData.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Order\Order.cs" />
+    <Compile Include="AdvancedAPIs\WeixinShop\Order\OrderResult.cs" />
+    <Compile Include="TenPayLib\TenPayRights\TenPayRights.cs" />
     <Compile Include="Agents\MessageAgent.cs" />
     <Compile Include="CheckSignature.cs" />
     <Compile Include="CommonAPIs\AccessTokenContainer.cs" />
+    <Compile Include="CommonAPIs\AccessTokenHandlerWapper.cs" />
     <Compile Include="CommonAPIs\CommonApi.cs" />
     <Compile Include="CommonAPIs\CommonJsonSend.cs" />
     <Compile Include="Config.cs" />
@@ -102,19 +131,20 @@
     <Compile Include="Entities\MessageBase.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Entities\Request\Event\IRequestMessageEventKey.cs" />
     <Compile Include="Entities\Request\RequestMessageBase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\Request\RequestMessageEventBase.cs">
+    <Compile Include="Entities\Request\Event\RequestMessageEventBase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\Request\RequestMessageEvent_Enter.cs">
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_Enter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\Request\RequestMessageEvent_Location.cs">
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_Location.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\Request\RequestMessageEvent_MassSendJobFinish.cs" />
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_MassSendJobFinish.cs" />
     <Compile Include="Entities\Request\RequestMessageImage.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -127,13 +157,13 @@
     <Compile Include="Entities\Request\RequestMessageVoice.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\Request\RequestMessageEvent_Subscribe.cs" />
-    <Compile Include="Entities\Request\RequestMessageEvent_Unsubscribe.cs" />
-    <Compile Include="Entities\Request\RequestMessageEvent_Click.cs" />
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_Subscribe.cs" />
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_Unsubscribe.cs" />
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_Click.cs" />
     <Compile Include="Entities\Request\RequestMessageLink.cs" />
-    <Compile Include="Entities\Request\RequestMessageEvent_Scan.cs" />
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_Scan.cs" />
     <Compile Include="Entities\Request\RequestMessageVideo.cs" />
-    <Compile Include="Entities\Request\RequestMessageEvent_View.cs" />
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_View.cs" />
     <Compile Include="Entities\Response\Article.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -184,11 +214,25 @@
     <Compile Include="ResponseMessageFactory.cs" />
     <Compile Include="Context\MessageContext.cs" />
     <Compile Include="Context\WeixinContext.cs" />
+    <Compile Include="TenPayLib\MD5Util.cs" />
+    <Compile Include="TenPayLib\QRCode.cs" />
+    <Compile Include="TenPayLib\RequestHandler.cs" />
+    <Compile Include="TenPayLib\ResponseHandler.cs" />
+    <Compile Include="TenPayLib\SHA1Util.cs" />
+    <Compile Include="TenPayLib\TenPayUtil.cs" />
+    <Compile Include="TenPayLib\TenPayInfo.cs" />
+    <Compile Include="TenPayLib\TenPayInfoCollection.cs" />
+    <Compile Include="TenPayLib\RefundRequestHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonAPIs\CommonApi.Menu.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="TenPayLib\RefundResponseHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TenPayLib\TenpayHttpClient.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
