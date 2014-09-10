@@ -62,7 +62,12 @@ namespace Senparc.Weixin.MP
         /// <summary>
         /// 事件推送群发结果
         /// </summary>
-        MASSSENDJOBFINISH
+        MASSSENDJOBFINISH,
+
+        /// <summary>
+        /// 模板信息发送完成
+        /// </summary>
+        TEMPLATESENDJOBFINISH
     }
 
 
@@ -77,7 +82,7 @@ namespace Senparc.Weixin.MP
         Image,
         Voice,
         Video,
-        Transfer_Customer_Service
+        Transfer_Customer_Service,
 		//transfer_customer_service
     }
 
@@ -161,6 +166,8 @@ namespace Senparc.Weixin.MP
         不合法的子菜单按钮KEY长度 = 40026,
         不合法的子菜单按钮URL长度 = 40027,
         不合法的自定义菜单使用用户 = 40028,
+        不合法的oauth_code = 40029,
+        不合法的refresh_token = 40030,
         缺少access_token参数 = 41001,
         缺少appid参数 = 41002,
         缺少refresh_token参数 = 41003,

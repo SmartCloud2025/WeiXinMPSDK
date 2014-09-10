@@ -77,7 +77,7 @@ namespace Senparc.Weixin.MP.TenPayLib
             Parameters = new Hashtable();
             XmlMap = new Hashtable();
 
-            this.HttpContext = httpContext;
+            this.HttpContext = httpContext ?? HttpContext.Current;
             NameValueCollection collection;
             //post data
             if (this.HttpContext.Request.HttpMethod == "POST")
@@ -181,7 +181,7 @@ namespace Senparc.Weixin.MP.TenPayLib
 
 			sb.Append("key=" + this.GetKey());
             string sign = MD5Util.GetMD5(sb.ToString(), GetCharset()).ToLower();
-            this.SetDebugInfo(sb.ToString() + " => sign:" + sign);
+            this.SetDebugInfo(sb.ToString() + " &sign=" + sign);
 			//debug–≈œ¢
 			return GetParameter("sign").ToLower().Equals(sign); 
 		}
