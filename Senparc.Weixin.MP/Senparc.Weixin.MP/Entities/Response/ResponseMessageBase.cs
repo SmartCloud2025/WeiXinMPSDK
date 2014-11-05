@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using Senparc.Weixin.Exceptions;
 using Senparc.Weixin.MP.Helpers;
 
 namespace Senparc.Weixin.MP.Entities
 {
-	public interface IResponseMessageBase : IMessageBase
+	public interface IResponseMessageBase : Weixin.Entities.IResponseMessageBase
 	{
 		ResponseMsgType MsgType { get; }
 		//string Content { get; set; }
@@ -17,7 +18,7 @@ namespace Senparc.Weixin.MP.Entities
 	/// <summary>
 	/// 响应回复消息
 	/// </summary>
-	public class ResponseMessageBase : MessageBase, IResponseMessageBase
+    public class ResponseMessageBase : Weixin.Entities.ResponseMessageBase, IResponseMessageBase
 	{
 		public virtual ResponseMsgType MsgType
 		{

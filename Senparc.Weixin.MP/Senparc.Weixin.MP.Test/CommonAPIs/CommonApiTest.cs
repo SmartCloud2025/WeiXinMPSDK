@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Senparc.Weixin.Exceptions;
 using Senparc.Weixin.MP.CommonAPIs;
 using Senparc.Weixin.MP.Entities;
 
@@ -37,6 +38,7 @@ namespace Senparc.Weixin.MP.Test.CommonAPIs
             Assert.IsTrue(tokenResult.expires_in > 0);
         }
 
+        [TestMethod]
         public void GetTokenFailTest()
         {
             try

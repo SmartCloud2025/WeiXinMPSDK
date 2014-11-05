@@ -79,8 +79,24 @@
     <Compile Include="AdvancedAPIs\User\OpenIdResultJson.cs" />
     <Compile Include="AdvancedAPIs\User\User.cs" />
     <Compile Include="AdvancedAPIs\User\UserInfoJson.cs" />
+    <Compile Include="Entities\Menu\SingleScancodePushButton.cs" />
     <Compile Include="Entities\Request\Event\RequestMessageEvent_TemplateSendJobFinish.cs" />
-    <Compile Include="Exceptions\MessageHandlerException.cs" />
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_LocationSelect.cs" />
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_PicWeixin.cs" />
+    <Compile Include="Entities\Request\PostModel.cs" />
+    <Compile Include="Entities\Response\ResponseMessageBase.cs" />
+    <Compile Include="Helpers\EventHelper.cs" />
+    <Compile Include="Helpers\MsgTypeHelper.cs" />
+    <Compile Include="Tencent\Cryptography.cs" />
+    <Compile Include="Tencent\WXBizMsgCrypt.cs" />
+    <Compile Include="TenPayLibV3\MD5Util.cs" />
+    <Compile Include="TenPayLibV3\RequestHandler.cs" />
+    <Compile Include="TenPayLibV3\ResponseHandler.cs" />
+    <Compile Include="TenPayLibV3\TenPayV3InfoCollection.cs" />
+    <Compile Include="TenPayLibV3\TenPayV3Info.cs" />
+    <Compile Include="TenPayLibV3\TenPayUtil.cs" />
+    <Compile Include="TenPayLibV3\TenPayV3\TenPayV3.cs" />
+    <Compile Include="TenPayLibV3\TenPayV3\TenPayV3Result.cs" />
     <Compile Include="TenPayLib\CheckRequestHandler.cs" />
     <Compile Include="TenPayLib\RefundQueryRequestHandler.cs" />
     <Compile Include="TenPayLib\ClientRequestHandler.cs" />
@@ -112,10 +128,6 @@
     <Compile Include="CommonAPIs\AccessTokenHandlerWapper.cs" />
     <Compile Include="CommonAPIs\CommonApi.cs" />
     <Compile Include="CommonAPIs\CommonJsonSend.cs" />
-    <Compile Include="Config.cs" />
-    <Compile Include="Context\MessageContainer.cs" />
-    <Compile Include="Context\MessageQueue.cs" />
-    <Compile Include="Context\WeixinContextRemovedEventArgs.cs" />
     <Compile Include="Entities\BaiduMap\BaiduMapMarkers.cs" />
     <Compile Include="Entities\Extensions.cs" />
     <Compile Include="Entities\GoogleMap\GoogleMapMarkers.cs" />
@@ -131,9 +143,6 @@
     <Compile Include="Entities\Menu\SingleClickButton.cs" />
     <Compile Include="Entities\Menu\SubButton.cs" />
     <Compile Include="Entities\Menu\SingleViewButton.cs" />
-    <Compile Include="Entities\MessageBase.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Entities\Request\Event\IRequestMessageEventKey.cs" />
     <Compile Include="Entities\Request\RequestMessageBase.cs">
       <SubType>Code</SubType>
@@ -174,9 +183,6 @@
     <Compile Include="Entities\Response\Music.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\Response\ResponseMessageBase.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Entities\Response\ResponseMessageMusic.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -193,30 +199,16 @@
     <Compile Include="Entities\Response\Voice.cs" />
     <Compile Include="Entities\Response\ResponseMessageVideo.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="Exceptions\ErrorJsonResultException.cs" />
-    <Compile Include="Exceptions\WeixinMenuException.cs" />
     <Compile Include="Helpers\BaiduMapHelper.cs" />
-    <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Helpers\EntityHelper.cs" />
-    <Compile Include="Helpers\EventHelper.cs" />
-    <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Helpers\GoogleMapHelper.cs" />
     <Compile Include="Helpers\GpsHelper.cs" />
-    <Compile Include="Helpers\MsgTypeHelper.cs" />
-    <Compile Include="Helpers\SerializerHelper.cs" />
-    <Compile Include="HttpUtility\Get.cs" />
-    <Compile Include="HttpUtility\Post.cs" />
-    <Compile Include="HttpUtility\RequestUtility.cs" />
     <Compile Include="Merchant\Entities\ProductBase.cs" />
     <Compile Include="Merchant\Good.cs" />
     <Compile Include="MessageHandlers\MessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestMessageFactory.cs" />
-    <Compile Include="Exceptions\UnknownRequestMsgTypeException.cs" />
-    <Compile Include="Exceptions\WeixinException.cs" />
     <Compile Include="ResponseMessageFactory.cs" />
-    <Compile Include="Context\MessageContext.cs" />
-    <Compile Include="Context\WeixinContext.cs" />
     <Compile Include="TenPayLib\MD5Util.cs" />
     <Compile Include="TenPayLib\QRCode.cs" />
     <Compile Include="TenPayLib\RequestHandler.cs" />
@@ -235,6 +227,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TenPayLib\TenpayHttpClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Senparc.Weixin\Senparc.Weixin\Senparc.Weixin.csproj">
+      <Project>{814092cd-9cd0-4fb7-91e8-d147f476f1fb}</Project>
+      <Name>Senparc.Weixin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Menu\SingleScancodeWaitmsgButton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Menu\SinglePicSysphotoButton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Menu\SinglePicPhotoOrAlbumButton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Menu\SinglePicWeixinButton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Menu\SingleLocationSelectButton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_PicPhotoOrAlbum.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_ScancodeWaitmsg.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_ScancodePush.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Request\Event\RequestMessageEvent_PicSysphoto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,6 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Senparc.Weixin.Exceptions;
+using Senparc.Weixin.Helpers;
+using Senparc.Weixin.MP.Entities.Request;
+using Tencent;
 
 namespace Senparc.Weixin.MP
 {
@@ -28,10 +32,11 @@ namespace Senparc.Weixin.MP
         /// 如果MsgType不存在，抛出UnknownRequestMsgTypeException异常
         /// </summary>
         /// <returns></returns>
-        public static IRequestMessageBase GetRequestEntity(XDocument doc)
+        public static IRequestMessageBase GetRequestEntity(XDocument doc, PostModel postModel = null)
         {
             RequestMessageBase requestMessage = null;
             RequestMsgType msgType;
+
             try
             {
                 msgType = MsgTypeHelper.GetRequestMsgType(doc);
@@ -123,6 +128,9 @@ namespace Senparc.Weixin.MP
             using (XmlReader xr = XmlReader.Create(stream))
             {
                 var doc = XDocument.Load(xr);
+
+                //
+
                 return GetRequestEntity(doc);
             }
         }
